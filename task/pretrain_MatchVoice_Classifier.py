@@ -1,5 +1,7 @@
 import sys, os
-sys.path.append('PATH_TO_FOLDER_OF_THIS_PROJECT')
+from pathlib import Path
+#sys.path.append(str(Path(__file__).parent))
+
 from dataset.video_dataset import VideoCaptionDataset, VideoCaptionDataset_Balanced
 import torch
 from torch.utils.data import DataLoader, random_split

@@ -1,6 +1,8 @@
 import argparse
 import sys, os
-sys.path.append('PATH_TO_FOLDER_OF_THIS_PROJECT')
+from pathlib import Path
+#sys.path.append(str(Path(__file__).parent))
+
 from dataset.MatchVision_commentary_from_npy import MatchVisionCommentary_from_npy_Dataset
 from model.matchvoice_model import matchvoice_model
 from torch.utils.data import DataLoader, random_split
@@ -147,7 +149,7 @@ if __name__ == "__main__":
     parser.add_argument("--from_matchvision", type=bool, default=True)
     parser.add_argument("--load_from_npy", type=bool, default=True)
     parser.add_argument("--need_temporal", type=str, default="yes")
-    parser.add_argument("--tokenizer_name", type=str, default="Meta-Llama-3-8B-Instruct")
+    parser.add_argument("--tokenizer_name", type=str, default="meta-llama/Meta-Llama-3-8B-Instruct")
     parser.add_argument("--train_batch_size", type=int, default=40)
     parser.add_argument("--train_num_workers", type=int, default=20)
 

@@ -1,5 +1,7 @@
 import sys
-sys.path.append('PATH_TO_FOLDER_OF_THIS_PROJECT')
+from pathlib import Path
+#sys.path.append(str(Path(__file__).parent))
+
 from model.MatchVision import VisionTimesformer, TextEncoder
 from torch import nn
 import torch.nn.functional as F

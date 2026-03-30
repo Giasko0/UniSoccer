@@ -4,7 +4,9 @@ from torch import nn
 import einops
 import contextlib
 import sys, os
-sys.path.append('PATH_TO_FOLDER_OF_THIS_PROJECT')
+from pathlib import Path
+#sys.path.append(str(Path(__file__).parent))
+
 from model.matchvoice_Qformer import BertConfig, BertLMHeadModel
 from model.MatchVision import VisionTimesformer
 from transformers.generation.logits_process import LogitsProcessor, LogitsProcessorList
@@ -39,10 +41,10 @@ class matchvoice_model_all_blocks(nn.Module):
     def __init__(self,
                  # Visual Encoder
                  load_checkpoint = True,
-                 visual_encoder_checkpoint = "PATH_TO_VISUAL_BACKBONE_CHECKPOINT",
+                 visual_encoder_checkpoint = "./downstream_commentary_all_open.pth",
                  # LLM part
-                 llm_ckpt = "Meta-Llama-3-8B-Instruct",
-                 tokenizer_ckpt = "Meta-Llama-3-8B-Instruct",
+                 llm_ckpt = "meta-llama/Meta-Llama-3-8B-Instruct",
+                 tokenizer_ckpt = "meta-llama/Meta-Llama-3-8B-Instruct",
                  # Q-former part
                  max_frame_pos = 128,
                  window = 30,

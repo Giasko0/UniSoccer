@@ -1,6 +1,8 @@
 import random
 import sys
-sys.path.append('PATH_TO_FOLDER_OF_THIS_PROJECT')
+from pathlib import Path
+#sys.path.append(str(Path(__file__).parent))
+
 import io
 import av
 import cv2
@@ -91,6 +93,7 @@ def set_transform(
         model_name = "/remote-home/jiayuanrao/huggingface_models/models--google--siglip-base-patch16-224/snapshots/cc3289c7ee0594a9e640dbf5580511cdcca21837"
     ):
     # 创建 SiglipProcessor 实例
+    model_name = "google/siglip-base-patch16-224"
     processor = AutoProcessor.from_pretrained(model_name)
     return processor
 

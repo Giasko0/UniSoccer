@@ -2,12 +2,15 @@ from PIL import Image
 import requests
 from transformers import AutoProcessor, SiglipVisionModel
 import sys
-sys.path.append('PATH_TO_FOLDER_OF_THIS_PROJECT')
+from pathlib import Path
+#sys.path.append(str(Path(__file__).parent))
+
 import torch
 import torch.nn as nn
 from torch.nn import TransformerEncoder, TransformerEncoderLayer
 import torch.nn.functional as F
-from timm.models.layers import DropPath
+from timm.layers import DropPath
+
 from einops import rearrange
 import torch.utils.checkpoint as checkpoint
 from collections import OrderedDict

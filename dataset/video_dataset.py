@@ -1,6 +1,8 @@
 import torch
 import sys
-sys.path.append('PATH_TO_FOLDER_OF_THIS_PROJECT')
+from pathlib import Path
+#sys.path.append(str(Path(__file__).parent))
+
 import json
 import os
 import random

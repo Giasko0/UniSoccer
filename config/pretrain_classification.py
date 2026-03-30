@@ -30,12 +30,21 @@ config = dict(
             num_workers = 24,
             sample = 'middle',
             balanced_or_not = 'unbalanced' # balanced / unbalanced 
+        ),
+        test = dict(
+            json = ["./train_data/json/MatchTime/classification.json"],
+            keywords = ["var", "end of half game", "clearance", "second yellow card", "injury", "ball possession", "throw in", "show added time", "shot off target", "start of half game", "substitution", "saved by goal-keeper", "red card", "lead to corner", "ball out of play", "off side", "goal", "penalty", "yellow card", "foul lead to penalty", "corner", "free kick", "foul with no card"],
+            video_base = ["./train_data/video_clips/Germany_Brazil_7_1"],
+            batch_size = 4,
+            num_workers = 4,
+            sample = 'middle',
+            balanced_or_not = 'unbalanced'
         )
     ),
     # Training settings
     training_settings = dict(
         epoch = 50,
-        device_ids = [4, 5, 6, 7], # Choose the device you want to use
+        device_ids = [0], # Choose the device you want to use
 
         open_siglip = True, # Here you should choose whether to open the parts of siglip model in the encoder
         classifier_transformer_type = "avg_pool", # You can chosse from ""avg_pool"/"cls_token", in our project, we train it with "avg_pool"
@@ -57,5 +66,7 @@ config = dict(
             entity = "YOUR_ENTITY_NAME",
             remark = "YOUR_PROJECT_NAME",
         )
-    )
+    ),
+    
 )
+

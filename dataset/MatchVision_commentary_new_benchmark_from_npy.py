@@ -1,5 +1,7 @@
 import sys, os
-sys.path.append('PATH_TO_FOLDER_OF_THIS_PROJECT')
+from pathlib import Path
+#sys.path.append(str(Path(__file__).parent))
+
 import torch
 import json
 from einops import rearrange
@@ -16,7 +18,7 @@ IGNORE_INDEX = -100
 class MatchVisionCommentary_new_benchmark_from_npy_Dataset(Dataset):
     def __init__(self, json_file, video_base_dir, 
                  num_frames=30, sample='middle', fix_start=None, max_num_frames=-1, trimmed30=False,
-                 tokenizer_name = 'Meta-Llama-3-8B-Instruct', max_token_length =128
+                 tokenizer_name = 'meta-llama/Meta-Llama-3-8B-Instruct', max_token_length =128
                  ):
         self.video_base_dir = video_base_dir
         # self.npy_dir = npy_dir
