@@ -120,7 +120,7 @@ if __name__ == "__main__":
     parser.add_argument("--csv_out_path", type=str, default="inference/sample.csv")
 
     parser.add_argument("--matchtime_json", type=str, default="train_data/json/MatchTime/classification.json")
-    parser.add_argument("--matchtime_video_base", type=str, default="train_data/video_clips/Germany_Brazil_7_1")
+    parser.add_argument("--matchtime_video_base", type=str, default="train_data/video_clips/")
     parser.add_argument("--soccerreplay1988_json", type=str, default="train_data/json/SoccerReplay-1988/classification_test.json")
     parser.add_argument("--soccerreplay1988_video_base", type=str, default="FOLDER_OF_VIDEO_CLIPS_OF_SOCCERREPLAY_1988")
     
