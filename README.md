@@ -29,6 +29,35 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+## Run the highlight pipeline
+
+### 1) Slice full match into clips
+First, split your full match video into 30-second clips:
+
+```bash
+python slice_video.py /path/to/full_match.mp4
+```
+
+This creates a folder with clips named `clip_001.mp4`, `clip_002.mp4`, etc.
+
+### 2) Detect and extract highlights
+Then run the highlight detection pipeline on the clips directory:
+
+```bash
+python auto_highlights_pipeline.py \
+  --video_dir /path/to/clips_folder \
+  --checkpoint pretrained_classification.pth \
+  --output_dir outputs/auto_highlights
+```
+
+**Arguments:**
+- `--video_dir` (required): Directory containing 30s clips from step 1
+- `--checkpoint` (default: `pretrained_classification.pth`): Path to model checkpoint
+- `--output_dir` (default: `outputs/auto_highlights`): Output directory for extracted clips and JSON
+- `--max_clips` (default: 0, meaning all): Limit number of clips to process
+- `--join`: Optional flag to concatenate all extracted highlights into one compilation video
+- `--commentary`: Optional flag to generate commentary text per extracted highlight clip
+
 ## Train
 
 <div align="center">
