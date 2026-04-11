@@ -14,16 +14,19 @@ This repository contains the official PyTorch implementation of paper **"Towards
 - [2024.12] Our pre-print paper is released on arXiv.
 
 ## Requirements
-- Python >= 3.8 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html))
-- [PyTorch >= 2.0.0](https://pytorch.org/) (If use A100)
-- transformers >= 4.42.3
-- pycocoevalcap >= 1.2
+- Python >= 3.10
+- ffmpeg / ffprobe installed on your system
+- Checkpoints: downstream_commentary_all_open.pth and pretrained_classification.pth
+  from https://huggingface.co/Homie0609/UniSoccer/tree/main
 
-A suitable [conda](https://conda.io/) environment named `UniSoccer` can be created and activated with:
+### Create venv
+Create and activate a standard venv and install requirements with pip.
 
-```
-conda env create -f environment.yaml
-conda activate UniSoccer
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
 ## Train
